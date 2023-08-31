@@ -41,16 +41,33 @@ function tongSoDuong(){
 // ----Bài 3----
 
 function timSoNhoNhat(){
-    var arrBai3 = arrTong;
-    var soMin = "";
-    for(var i=0;i < arrBai3.length;i++)
+    function findMinMax(arr,n)
     {
-        if(arrBai3[i] < soMin)
-        {
-            soMin = arrBai3[i];
-            document.getElementById("so_Nho_Nhat").innerHTML = soMin;
+        let mini = arr[0];
+        let maxi = arr[0];
+     
+        for (let i = 0; i < n; i++) {
+            if (arr[i] < mini) {
+                mini = arr[i];
+            }
+            else if (arr[i] > maxi) {
+                maxi = arr[i];
+            }
         }
+        let ans = {
+            "first":mini,
+            "second":maxi
+        }
+        return ans;
     }
+     
+        let arr = arrTong;
+        let N = arr.length;
+     
+        // Function Call
+        let ans = {};
+        ans = findMinMax(arr, N);
+        document.getElementById("so_Nho_Nhat").innerHTML = ans.first;
 }
 
 
@@ -91,8 +108,6 @@ function timSoDuongNhoNhat(){
 
 
 // ----Bài 5----
-
-
 function timSoChanCuoiCung(){
     for(var i=0; i<arrTong.length; i++)
     {
@@ -209,7 +224,6 @@ Dãy Số Nguyên Trong Mảng Là: ${arrSoNguyen}`;
 // ----Bài 10----
 
 var arrBai10 = arrTong;
-console.log(arrBai10);
 function SoNguyen(n){
     //flag = 1 => là số nguyên
     //flag = 0 => không phải là số nguyên
